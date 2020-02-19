@@ -22,7 +22,7 @@ double montecarlo (double T, double strike, double spot, double vol, double r, u
         for (unsigned long i = 0; i < numberOfPaths; i++)
             {
                 double nrand = z_score();
-                S = 103; //S_init * exp(stdDev * nrand);
+                S = S_init * exp(stdDev * nrand); //103
                 //call option payoff
                 //payoff = S - strike;
                 //put option payoff
