@@ -4,8 +4,9 @@
 
 using namespace std;
 
-//T - Expiry; r - risk free rate; vol - volatility;
-double montecarlo (double T, double strike, double spot, double vol, double r, unsigned long numberOfPaths)
+//T - Expiry; r - risk free rate; vol - volatility; UB/LB - upper/lower bounds for double digital option
+double montecarlo (double T, double strike, double spot, double vol, double r, unsigned long numberOfPaths,
+                   double LB, double UB, double units)
     {
         double var = vol*vol * T;
         double stdDev = sqrt(var);
@@ -16,12 +17,23 @@ double montecarlo (double T, double strike, double spot, double vol, double r, u
 
         double runningSum = 0;
 
+        double payoff;
+
         for (unsigned long i = 0; i < numberOfPaths; i++)
             {
                 double nrand = z_score();
-                S = S_init * exp(stdDev * nrand);
-                double payoff = S - strike;
+                S = 103; //S_init * exp(stdDev * nrand);
+                //call option payoff
+                //payoff = S - strike;
+                //put option payoff
+                //payoff = strike - S;
+                //double digital payoff
+                payoff = (S > LB && S < UB)? (1 * units) : 0;
                 payoff = (payoff > 0)? payoff : 0;
+
+                
+                //payoff = (payoff > 0)? payoff : 0;
+                
 
                 runningSum += payoff;
 
@@ -33,5 +45,5 @@ double montecarlo (double T, double strike, double spot, double vol, double r, u
 
 int main ()
     {
-        cout << montecarlo (2, 100, 100, 0.15, 0.025, 100000);
+        cout << montecarlo (0.5, 100, 100, 0.15, 0.04, 1000, 90, 110, 100);
     }
