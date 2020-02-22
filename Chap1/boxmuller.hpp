@@ -13,7 +13,7 @@ double z_score () {
     double a; //declare first variable to be generated
     double b; //declare second variable to be generated
 
-    //srand(time(0));
+    
 
     do
     {
