@@ -44,12 +44,12 @@ int main () {
 	cin >> offer;
 	
 	payOff = SpotArbitrage(bid, offer);
-	cout << payOff << endl;
+	cout << "Risk free profit per unit is: " << payOff << endl;
 	
 	if (payOff > 0) {
 		notional = notionalCall();
 		profitArbitrage = payOff * notional;
-		cout << "Expected Profit: " << profitArbitrage << endl;
+		cout << "Expected Riskless Profit: " << profitArbitrage << endl;
 	} else {
 		cout << "No arbitrage opportunity";
 	}
