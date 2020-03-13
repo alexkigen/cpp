@@ -1,3 +1,5 @@
+//created to follow along lesson by Erin Colvin
+
 #include <iostream>
 #include <cmath>
 #include <iomanip>  //used by setprecision to set decimal places e.g. setprecision(2) should give 2.98
