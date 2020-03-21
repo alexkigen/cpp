@@ -14,7 +14,8 @@ namespace patch
     }
 }
 
-//create a class called employees
+//create a class called Employees
+
 class Employees {
 	private:
 		std::string company;
