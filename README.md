@@ -1,2 +1,2 @@
 # cpp
-Contains scripts I have written in C++ as I learn
+Contains C++ scripts I have written
